@@ -1,9 +1,11 @@
-import {createServer} from 'node:http';
+import { fastify } from "fastify";
 
-const server = createServer((request, response) => {
-    response.write("oi")
+const server = fastify()
 
-    return response.end()
+server.get('/', () => {
+    return 'Hello World'
 })
 
-server.listen(3331)
+server.listen({
+    port: 3331,
+})
